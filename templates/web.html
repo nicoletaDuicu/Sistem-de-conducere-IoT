@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control LED & Temperatură</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        /*function updateTemperature() {
+            fetch("/get_temperature")
+                .then(response => response.text())
+                .then(data => document.getElementById("temp").innerText = data + "°C");
+        }*/
+
+        function controlLED(state) {
+            fetch("/control_led", {
+                method: "POST",
+                headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                body: "status=" + state
+            });
+        }
+
+        //setInterval(updateTemperature, 2000);
+    </script>
+</head>
+<body>
+    <h1>Sistem de Monitorizare</h1>
+    <h2>Temperatura: <span id="temp">N/A</span></h2>
+    
+    <button onclick="controlLED('ON')">Aprinde LED</button>
+    <button onclick="controlLED('OFF')">Stinge LED</button>
+</body>
+</html>
