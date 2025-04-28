@@ -12,7 +12,10 @@ Technologies Used
 
 -UART Serial Communication 
 
+
+
   System Architecture
+  
 -Arduino is connected to the lights (via digital output pins) and listens for UART serial commands (ON, OFF).
 
 -Python Flask Server runs locally on a PC, sending serial commands over USB UART to the Arduino.
