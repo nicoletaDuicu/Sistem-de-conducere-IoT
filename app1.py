@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request
 import serial
 
-app = Flask(__name__)  # Corect: __name, nu _name
-
-# Portul serial (modifică dacă Arduino e pe alt port)
+app = Flask(__name__) 
 ser = serial.Serial('COM3', 9600, timeout=1)
 
 @app.route("/")
